@@ -1,23 +1,22 @@
 
-import java.util.Scanner;
 
+import java.util.Scanner;
 
 class switchHandler {
 
-	byte möglichkeitGewählt;
-	byte möglichkeitSwitch;
+	byte moeglichkeitGewaehlt;
+	byte moeglichkeitSwitch;
 	Scanner s;
 
-	public switchHandler(byte möglichkeitGewählt){
-		this.möglichkeitGewählt = möglichkeitGewählt;
+	public switchHandler(byte moeglichkeitGewaehlt){
+		this.moeglichkeitGewaehlt = moeglichkeitGewaehlt;
 	}
 
-	public void möglichkeit(){
+	public void moeglichkeit(){
 
-		switch (möglichkeitGewählt){
+		switch (moeglichkeitGewaehlt){
 
 		case 1:  
-
 			datenIn di = new datenIn();
 			di.datenRein();
 

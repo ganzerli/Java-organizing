@@ -11,13 +11,13 @@ public static void main(String[] args) {
 	}
 	//////// ramen /////
 	
-	//////////////grüss///////////
+	//////////////gruess///////////
 	platz.mp();
 	platz.mp();
 	gruss g = new gruss("wilkommen in den neuen vervaltungsprogramm");
 	System.out.println(g.mach());
 	platz.mp();
-	////////---fertig grüss-----///
+	////////---fertig gruess-----///
 	/*  *schauen ob es iemanden scon gibt  
 		* name enter,
 		* lesen die namen
@@ -32,7 +32,7 @@ public static void main(String[] args) {
 	autentifizierung l = new autentifizierung(niegewesen.getvorname(),niegewesen.getfamilienname());
 	/////////////////////////  name suche ////////////////////////
 		l.filereiercounter(); // das brauch man um dem array in autentifizierung classe, method arrayvonfile eine vorzustand gestalten
-		l.fileöffnen();
+		l.fileOeffnen();
 		l.namesuchen();
 		l.fileschliessen(); // verbessern das wenn meh mit gleiche name in dem file sind etwas muss genau werden
 	platz.mp();  
@@ -44,18 +44,18 @@ public static void main(String[] args) {
 
 	if (l.sperre()){ 
 
-		frageVonScanner fvs = new frageVonScanner("Datensteuerung möglich. Was möchten Sie jetzt machen?\n 1) Neue Daten einschreiben\n 2) Daten suchen\n 3) Daten Ändern \n 4) Daten Löschen \n 5) Exit\n Nummer eingeben als Antwort:");
+		frageVonScanner fvs = new frageVonScanner("Datensteuerung moglich. Was mochten Sie jetzt machen?\n 1) Neue Daten einschreiben\n 2) Daten suchen\n 3) Daten Ändern \n 4) Daten Loschen \n 5) Exit\n Nummer eingeben als Antwort:");
 		fvs.antwortBekommen();
 
 		if (fvs.fallsPass()){
 
 			switchHandler sh = new switchHandler(fvs.getAntwort());
-			sh.möglichkeit();
+			sh.moeglichkeit();
 
  			/// Object o = Integer.valueOf( 42 );
 
 		}else if (!fvs.fallsPass()){
-		System.out.println("\n       :...Antwort nicht gültig...:\n ");
+		System.out.println("\n       :...Antwort nicht gueltig...:\n ");
 		}
 	} 		// von if (l.sperre())
 

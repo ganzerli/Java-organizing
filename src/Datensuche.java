@@ -1,3 +1,8 @@
+
+
+// System.getProperty("user.dir")
+
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
@@ -7,21 +12,21 @@ public class Datensuche {
 public static String datenZuSuchen,erleichterung,wasGenau,filter="nf",erleichterungDatums,zwischen1,zwishcen2;
 private static Scanner scan; // = new Scanner (System.in);
 private static boolean control = false, producktOderPreiz = false;
-private static byte nummerGegenstände = 6;
-private static String arr[] = new String[nummerGegenstände];
+private static byte nummerGegenstaende = 6;
+private static String arr[] = new String[nummerGegenstaende];
 private static String vorstellung[] = {"Datum            >>>  : ","Eingenommen      >>>  :","Besonderheit     >>>  :","Noten            >>>  :","Ausgegeben       >>>  :","Preiz:             >>>:"};
 
 public Datensuche(){}
 
 public static void frage(){
 	scan = new Scanner(System.in);
-	System.out.println("Daten gehörigen zu welcher sort suchen? [ NUMMER EINGEBEN ]\n 1) Datum\n 2) Eingenommen\n 3) Besonderheit\n 4) Noten\n 5) Ausgegeben\n 6) Preiz (zeug-preiz)");
+	System.out.println("Daten gehoerigen zu welcher sort suchen? [ NUMMER EINGEBEN ]\n 1) Datum\n 2) Eingenommen\n 3) Besonderheit\n 4) Noten\n 5) Ausgegeben\n 6) Preiz (zeug-preiz)");
 	datenZuSuchen = scan.nextLine();
 	datVereinigung();
 	while (!control){
 		System.out.println(" !!! [E:] ungenauen Wert eingegeben, bitte den vorgang wirderholen");
 		scan = new Scanner(System.in);
-		System.out.println("Daten gehörigen zu welcher sort suchen? [ NUMMER EINGEBEN ]\n 1) Datum\n 2) Eingenommen\n 3) Besonderheit\n 4) Noten\n 5) Ausgegeben\n 6) Preiz (zeug-preiz)");
+		System.out.println("Daten gehoerigen zu welcher sort suchen? [ NUMMER EINGEBEN ]\n 1) Datum\n 2) Eingenommen\n 3) Besonderheit\n 4) Noten\n 5) Ausgegeben\n 6) Preiz (zeug-preiz)");
 		datenZuSuchen = scan.nextLine();
 		datVereinigung();
 	}
@@ -32,7 +37,7 @@ public static void datVereinigung (){
 	do{
 		if (!control){
 			System.out.println(" !!! [E]: falsches Wert eingegeben, biette wiederholen..");
-			System.out.println("Daten gehörigen zu welcher sort suchen? [ NUMMER EINGEBEN ]\n 1) Datum\n 2) Eingenommen\n 3) Besonderheit\n 4) Noten\n 5) Ausgegeben\n 6) Preiz (zeug-preiz)");
+			System.out.println("Daten gehoerigen zu welcher sort suchen? [ NUMMER EINGEBEN ]\n 1) Datum\n 2) Eingenommen\n 3) Besonderheit\n 4) Noten\n 5) Ausgegeben\n 6) Preiz (zeug-preiz)");
 			System.out.println();
 			datenZuSuchen = scan.nextLine();
 		}
@@ -111,7 +116,7 @@ public static void setWasGenau(){
 		System.out.println("von wann? TT/MM/JJJJ");
 		wasGenau = scan.nextLine();
 		break;
-// das wert ist schon geändert worden damit auch mit einer nummern eníngabe wird ein wort in die variabel gespeichert
+// das wert ist schon geaendert worden damit auch mit einer nummern eníngabe wird ein wort in die variabel gespeichert
 		case "Eingenommen":
 		nummerSuche("Eingenommen");
 		break;
@@ -149,12 +154,12 @@ do{
 	}
 	else{
 		control = false;
-		System.out.println("[ ERROR ]  antwort inicht gültig ( ---> entweder   1   oder   2  \n--> bitte Vorgang wiederholen");
+		System.out.println("[ ERROR ]  antwort inicht gueltig ( ---> entweder   1   oder   2  \n--> bitte Vorgang wiederholen");
 	}
 } while(!control);
 
 /*if (wasGenau.equals("1")){
-System.out.println("was für ein produkt?");
+System.out.println("was fuer ein produkt?");
 wasGenau  = scan.nextLine();
 }else{
 System.out.println("produckt mit welchem Preiz?");
@@ -208,10 +213,10 @@ public static String nummerSuche(String betreff){
 					passt = true;
 				}else{
 					passt = false;
-					System.out.println("[  FEHLER  ] format könnte nicht richtig sein, bitte das format beachten:\n[nummer - nummer]");
+					System.out.println("[  FEHLER  ] format koennte nicht richtig sein, bitte das format beachten:\n[nummer - nummer]");
 				}
 			}while(!passt);
-control = true;			// ???? ähnlich wie passt??? keine ahnung lasse ich den da
+control = true;			// ???? aehnlich wie passt??? keine ahnung lasse ich den da
 tempVar = "4"; // extreme wiichtig!!
 System.out.println("\n \t SUCHE zwischen :" +parsieren(zwischen1)+" und "+parsieren(zwishcen2)+"\n");
 break;
@@ -228,13 +233,13 @@ public static boolean datumCheck(String zuTesten){
 	control = false;
 	String tempVar = zuTesten;
 	char ch [] = tempVar.toCharArray();
-	byte besondereCharZählen = 0;
+	byte besondereCharZaehlen = 0;
 	for (byte i=0 ; i < ch.length; i++){
 		if (ch[i] == '/' ||ch[i] == ' ' || ch[i] == '-'){
-			besondereCharZählen+=1;
+			besondereCharZaehlen+=1;
 		} 
 	}
-	if (besondereCharZählen == 7){
+	if (besondereCharZaehlen == 7){
 		tempVar = "";
 		String checkPasst;
 		for (byte i=0 ; i < ch.length; i++){
@@ -249,12 +254,12 @@ public static boolean datumCheck(String zuTesten){
 }
 
 public static boolean erleichterung(){
-	boolean zurückgeben = true;
+	boolean zurueckgeben = true;
 	control = false;
 	boolean datcontr = false;
 	if (datenZuSuchen != "Datum"){
 		do{
-			System.out.println("um die suche angenehmer zu erhalten ist angeboten die möglichkeit ob in einer bestimmter zeit die daten suchen oder einfach seit immer in den ganzen database");
+			System.out.println("um die suche angenehmer zu erhalten ist angeboten die moeglichkeit ob in einer bestimmter zeit die daten suchen oder einfach seit immer in den ganzen database");
 			System.out.println(" 1) aus zeit period [tt/mm/jjjj - tt/mm/jjjj] \n 2) seit immer");
 			String tempVar = scan.nextLine();
 			String eins ="1";
@@ -270,10 +275,10 @@ public static boolean erleichterung(){
 						System.out.println("\n 		[ERROR]\netwas stimmt nicht mit dem eingegebenen Datum-paar..");
 					}
 				}while(!datcontr);
-				zurückgeben = true;
+				zurueckgeben = true;
 				control = true;
 			}else if (tempVar.equals("2")){
-				zurückgeben = false;
+				zurueckgeben = false;
 				control  = true;
 			}else{
 				control = false;
@@ -283,20 +288,20 @@ public static boolean erleichterung(){
 			}
 		}while(!control);
 	}
-	return zurückgeben;
+	return zurueckgeben;
 }
 
 public static boolean lesenDatum(String vonWelchemFile,String betreff){
-// mach controlle, wenn datum gefunden, zählen wie viele ist die reiher und laden ohne begrenzung gefunden mach array
-	fileÖffnen(vonWelchemFile);
+// mach controlle, wenn datum gefunden, zaehlen wie viele ist die reiher und laden ohne begrenzung gefunden mach array
+	fileOeffnen(vonWelchemFile);
 	String tempVar ="";
 	boolean endeReie = false;
-//byte nummerGegenstände = 6;
+//byte nummerGegenstaende = 6;
 	int abtrennungCounter = 0;
-//String arr[] = new String[nummerGegenstände];
+//String arr[] = new String[nummerGegenstaende];
 	String arrayFutter ="";
 	boolean gefunden = false;
-	arr = new String [nummerGegenstände];
+	arr = new String [nummerGegenstaende];
 //String vorschuz = "";
 	if (istDatum(betreff)){
 
@@ -319,7 +324,7 @@ public static boolean lesenDatum(String vonWelchemFile,String betreff){
 					}else{
 						arrayFutter = arrayFutter + " " + tempVar;
 					}
-					if (abtrennungCounter == nummerGegenstände){
+					if (abtrennungCounter == nummerGegenstaende){
 						endeReie = true;
 					}
 				}
@@ -334,7 +339,7 @@ public static boolean lesenDatum(String vonWelchemFile,String betreff){
 	return gefunden;
 }
 
-public static void fileÖffnen(String welches){
+public static void fileOeffnen(String welches){
 	try{ scan = new Scanner(new File(welches));}
 	catch(Exception e){System.out.println("kein file gefunden");}
 }
@@ -412,7 +417,7 @@ public static void wennDatum(){
 		if (istDatum(wasGenau)){
 			if (checkFile(checkName(wasGenau))){
 				if(lesenDatum(System.getProperty("user.dir")+"/2015/"+ checkName(wasGenau) +".txt",wasGenau)){
-					datenDrücken(wasGenau,"alle");
+					datenDruecken(wasGenau,"alle");
 				}else{System.out.println("keine daten gefunden am"+wasGenau);}
 			}else{
 				System.out.println("entstehen keine Deaten an desem Tag");
@@ -421,14 +426,14 @@ public static void wennDatum(){
 	}
 }
 
-public static void datenDrücken (String betreff,String welches){
-	arr = new String[nummerGegenstände];
+public static void datenDruecken (String betreff,String welches){
+	arr = new String[nummerGegenstaende];
 
 	if (checkFile(checkName(betreff))){
 		lesenDatum(System.getProperty("user.dir")+"/2015/"+ checkName(betreff) +".txt",betreff);
 		if (welches.equals("alle")){
 			System.out.println("##############################################################################\n");
-			for (byte i = 0; i< nummerGegenstände; i++){
+			for (byte i = 0; i< nummerGegenstaende; i++){
 				System.out.printf("%s%s\n\n",vorstellung[i],arr[i]);
 			}
 			System.out.println("##############################################################################\n");
@@ -455,11 +460,11 @@ public static void datenDrücken (String betreff,String welches){
 // WAS WENN MUSS MAN FIELE WERTE VERGLEICHEN??? VIELE MAHL DAS WORT FRAGEN..
 
 /* ERST EINARRAY BAUEN MIT ALLE DIE DATEN, LOOPEN UND ADDIEREN LENGTH UND EINE NUMMER FINDEN WIE VIELE MAHL DAS WER EINGEGEBEN WURDE, aber mit ausgegeben und eingenommen muss 
-man finden auch weniger als oder mehr als .. wielleich nur finden die  erste nummer und die dezumalen später machen..
+man finden auch weniger als oder mehr als .. wielleich nur finden die  erste nummer und die dezumalen spaeter machen..
 WENN NUR EINE REIER, WIE DA UNTEN
 FRAGEN HERSTELLEN
 DANN LOOPEN IN VERSCHIEDENE FILE UND ZEIGEN DIE ERGEBNISSSE
-WIEVIELEFILE KANN AUC ERROR ZURÜCKGEBEN*/
+WIEVIELEFILE KANN AUC ERROR ZURueCKGEBEN*/
 
 public static String[] datumSpalten(){
 
@@ -495,8 +500,8 @@ if (tag < 31 && monat < 13 && jahr <2025 && jahr > 2014){ // voraussetzungen dam
 return control;
 }
 
-public static String[] zweiDatumUmkehren(String erste, String zweite){ // im fall des zweites datum ist frühere im zeitpunkt des erstes.. wird im array die index umgewechselt
-control = false;													// kein try catch weil in suche() das method zweidatumumkehren kommt später..
+public static String[] zweiDatumUmkehren(String erste, String zweite){ // im fall des zweites datum ist fruehere im zeitpunkt des erstes.. wird im array die index umgewechselt
+control = false;													// kein try catch weil in suche() das method zweidatumumkehren kommt spaeter..
 char ersteArr[] = erste.toCharArray();
 int tag= Integer.valueOf(String.valueOf(ersteArr[0]) + String.valueOf(ersteArr[1]));
 int monat = Integer.valueOf(String.valueOf(ersteArr[3]) + String.valueOf(ersteArr[4]));
@@ -521,12 +526,12 @@ if (jahr2 >= jahr){
 }else{
 	control =false;
 }
-String zurückZuGeben[] = {erste, zweite};
+String zurueckZuGeben[] = {erste, zweite};
 if (!control){
-	zurückZuGeben[0] = zweite;
-	zurückZuGeben[1] = erste;
+	zurueckZuGeben[0] = zweite;
+	zurueckZuGeben[1] = erste;
 }
-return zurückZuGeben;
+return zurueckZuGeben;
 }
 
 //####################################################################################################################################
@@ -560,18 +565,18 @@ seitImmer = false;
 }while(!control);
 ///man hat die zwei datum um einen datumspectrum zu haben... muss man ein method erschaffen das die zwei als array kriegt,und die suche mit den FILTER fort setzt..
 
-// array mit allen den daten möglich kriegen;
+// array mit allen den daten moeglich kriegen;
 String datum[] = wieVieleFile(seitImmer,checkName(ersteDatum),checkName(zweiteDatum));
 
 
 if (datum.length > 0){			
-byte zähler,reierFindenZähler, counter,counter2,counter3;		// nur wenn es etwas drinnen gibt..
+byte zaehler,reierFindenZaehler, counter,counter2,counter3;		// nur wenn es etwas drinnen gibt..
 // 2 dimensional array??
 String datenArr[], ganzerFileName,wort,infoDesTages[],antwort,arrSache[],arrPrize[], prodArr[];
-String prod=""; // für das loop wo man zeigt das produckt und preiz..
-String prei=""; // für das loop wo man zeigt das produckt und preiz.
+String prod=""; // fuer das loop wo man zeigt das produckt und preiz..
+String prei=""; // fuer das loop wo man zeigt das produckt und preiz.
 float floTest;
-float vergleichen = 0;// wenn zwischen 2 nummern haben die komma stört
+float vergleichen = 0;// wenn zwischen 2 nummern haben die komma stoert
 if(!filter.equals("zwischen")){
 	vergleichen = parsieren(wasGenau);
 }
@@ -584,7 +589,7 @@ boolean knt = false;
 boolean ja = false;
 antwort = "";
 //String passende[] = new String[];
-for (int i = 0; i< datum.length; i++){ // für jeden File array kriegen, und kontrollieren ob passt durch den filter, sodass alle genau zu suchen werden 
+for (int i = 0; i< datum.length; i++){ // fuer jeden File array kriegen, und kontrollieren ob passt durch den filter, sodass alle genau zu suchen werden 
 
 
 datenArr = datGesuchtHerausBekommen(datum[i]); // alle die daten vom sort datenZusuchen, vom file datum[i] in den array
@@ -593,39 +598,39 @@ und datGesuchtHerausbekommen nimmt von alle den tegen von datum[i] das Teil aus 
 datenArr[] kriegt aus dem file datum [i] die ganze "datenZuSuchen" werte  */
 //System.out.println(datum[i] +"dfsadfsadfasdfasdfasdfasdf" + datenArr[i]);
 
-zähler = 0;
-reierFindenZähler = Byte.valueOf(zähler + "1");
+zaehler = 0;
+reierFindenZaehler = Byte.valueOf(zaehler + "1");
 ganzerFileName = System.getProperty("user.dir")+"/2015/"+datum[i]+".txt";
 
 ///#////////#///#//////#/#///#///#//////#//#////#//#///////#//#/////##///////#////#///#/////#//#/#///////#######////
 
 for (String j : datenArr){
-//System.out.println(datenArr[zähler]);
+//System.out.println(datenArr[zaehler]);
 
 	if (datenZuSuchen.equals("Eingenommen") || datenZuSuchen.equals("Ausgegeben")){
 		switch (filter){
 //if (filter.equals("genau")){ // brauch man nur sehen wenn die nummer stimmt genau
 			case "genau":
-floTest = parsieren(datenArr[zähler]);// den wert wird in float parsiert, wenn nur buhstabe oder nichts = 0.0
+floTest = parsieren(datenArr[zaehler]);// den wert wird in float parsiert, wenn nur buhstabe oder nichts = 0.0
 if (floTest == vergleichen){
 etwasGefunden = true; // dann man sagt etwas;
-datumHerausbekommt  = datumVonReier(reierFindenZähler, ganzerFileName);// der zähler passt zu reier weil es wird wieder null jede file, die file möglich sind in datenArr[i]
+datumHerausbekommt  = datumVonReier(reierFindenZaehler, ganzerFileName);// der zaehler passt zu reier weil es wird wieder null jede file, die file moeglich sind in datenArr[i]
 schalter = true;
 }
 break;
 case "wenigerals":
-floTest = parsieren(datenArr[zähler]);// den wert wird in float parsiert, wenn nur buhstabe oder nichts = 0.0
+floTest = parsieren(datenArr[zaehler]);// den wert wird in float parsiert, wenn nur buhstabe oder nichts = 0.0
 if (floTest <= vergleichen){
 etwasGefunden = true; // dann man sagt etwas;
-datumHerausbekommt  = datumVonReier(reierFindenZähler, ganzerFileName);// der zähler passt zu reier weil es wird wieder null jede file, die file möglich sind in datenArr[i]
+datumHerausbekommt  = datumVonReier(reierFindenZaehler, ganzerFileName);// der zaehler passt zu reier weil es wird wieder null jede file, die file moeglich sind in datenArr[i]
 schalter = true;
 }
 break;
 case "mehrals":
-floTest = parsieren(datenArr[zähler]);// den wert wird in float parsiert, wenn nur buhstabe oder nichts = 0.0
+floTest = parsieren(datenArr[zaehler]);// den wert wird in float parsiert, wenn nur buhstabe oder nichts = 0.0
 if (floTest >= vergleichen){
 etwasGefunden = true; // dann man sagt etwas;
-datumHerausbekommt  = datumVonReier(reierFindenZähler, ganzerFileName);// der zähler passt zu reier weil es wird wieder null jede file, die file möglich sind in datenArr[i]
+datumHerausbekommt  = datumVonReier(reierFindenZaehler, ganzerFileName);// der zaehler passt zu reier weil es wird wieder null jede file, die file moeglich sind in datenArr[i]
 schalter = true;
 }
 break;
@@ -643,25 +648,25 @@ System.out.println("\n -----  Filter ERROR  -----\n");
 
 } else if (datenZuSuchen.equals("Besonderheit") || datenZuSuchen.equals("Noten")){
 //#############   ### baustelle totoal !!! '###############################################################################
-	if(datenArr[zähler] != null || datenArr[zähler] != "" || datenArr[zähler] != " "){
-		infoDesTages = datenArr[zähler].split(" ");
+	if(datenArr[zaehler] != null || datenArr[zaehler] != "" || datenArr[zaehler] != " "){
+		infoDesTages = datenArr[zaehler].split(" ");
 		for (String w : infoDesTages){
 			if (w.equals(wasGenau)){
-	datumHerausbekommt  = datumVonReier(reierFindenZähler, ganzerFileName);// der zähler passt zu reier weil es wird wieder null jede file, die file möglich sind in datenArr[i]
+	datumHerausbekommt  = datumVonReier(reierFindenZaehler, ganzerFileName);// der zaehler passt zu reier weil es wird wieder null jede file, die file moeglich sind in datenArr[i]
 
 	schalter = true;
 	etwasGefunden = true;
-}
-}
-}
+			}
+		}
+	}
 }
 //###########################################################################################################################
 
 if (datenZuSuchen.equals("Preiz")){
 	counter = 0;
-// von datenArr[zähler] die einzelne sache/preiz kriegen
-	if (datenArr[zähler] != null || !datenArr[zähler].equals("")){
-		arrSache = datenArr[zähler].split("/");
+// von datenArr[zaehler] die einzelne sache/preiz kriegen
+	if (datenArr[zaehler] != null || !datenArr[zaehler].equals("")){
+		arrSache = datenArr[zaehler].split("/");
 
 /* 	for (String p : arrSache){
 	System.out.println(arrSache[counter] + "   " + datum[i]);
@@ -671,7 +676,7 @@ if (datenZuSuchen.equals("Preiz")){
 	String falschArray[]={"nix - 0"};
 	arrSache = falschArray;
 }
-// BISHEAR MAN KANN ALLE DIE EINTRÄGE SEHEN
+// BISHEAR MAN KANN ALLE DIE EINTRaeGE SEHEN
 
 counter = 0;
 char cn[];
@@ -697,12 +702,12 @@ for (String p : arrSache){
 		}
 		counter2++;
 	}
-	if (prei.equals("") || prei.equals(" ")){ prei =" [ kein preiz verfügbar ] ";}
-//##################################################### AB HIER NUR FÜR PRODUCKT SUCHE
+	if (prei.equals("") || prei.equals(" ")){ prei =" [ kein preiz verfuegbar ] ";}
+//##################################################### AB HIER NUR FueR PRODUCKT SUCHE
 //JETZT HAT MAN PRODUCKT UND PREIZ GETRENNT
 // SHAUEN OB EIN WORT VON PRODUCKT STIMMT MIT WASGENAU
 //filter !!
-//	System.out.println("PROD :"+ prod +" -->PREIZ : "+prei+"  AM : "+datumVonReier(reierFindenZähler,ganzerFileName)+"\n");
+//	System.out.println("PROD :"+ prod +" -->PREIZ : "+prei+"  AM : "+datumVonReier(reierFindenZaehler,ganzerFileName)+"\n");
 
 	/*array von produckt satz*/ 
 	if(producktOderPreiz){
@@ -716,7 +721,7 @@ for (String s : prodArr){
 	counter3++;
 }
 if (ja){
-	System.out.println("PROD :"+ prod +" -->PREIZ : "+prei+   " AM : "+datumVonReier(reierFindenZähler,ganzerFileName)+"\n");
+	System.out.println("PROD :"+ prod +" -->PREIZ : "+prei+   " AM : "+datumVonReier(reierFindenZaehler,ganzerFileName)+"\n");
 }
 }else{
 	// case , parsieren und finden ob zwischen funktioniert
@@ -736,7 +741,7 @@ if (einmahl && etwasGefunden){ // nur einmahl..
 		System.out.println("\n  --- !!!! ----\nWerden gezeigt die tagen wann als "+datenZuSuchen+": >" +wasGenau+"< hingeshcrieben wurde, andere daten won welche Sort MITZEIGEN ?\n\n"+ausgeschlossenZeigen(datenZuSuchen,"1) NEIN NUR WANN -"+ wasGenau +"- im database gefunden wird",true,true));
 		scan = new Scanner(System.in);
 		antwort = scan.nextLine();
-for (byte k = 2; k <= nummerGegenstände; k++){ // kontrollieren das die antwort zwischen 2 und 6 ist und isr nicht was scon gefragt hat "datenZuSuchen"
+for (byte k = 2; k <= nummerGegenstaende; k++){ // kontrollieren das die antwort zwischen 2 und 6 ist und isr nicht was scon gefragt hat "datenZuSuchen"
 if (antwort.equals(String.valueOf(k)) && k != woMussSein(datenZuSuchen)+1 ){
 	knt = true;
 }
@@ -748,21 +753,21 @@ if (antwort.equals("1")){
 einmahl = false;
 }
 
-if (schalter && etwasGefunden){ // diese zeile sind im dem loop sodass die datum und  andere daten werden updated, aber sonstt drückt jedes mahl und nicht nur wenn eon wert gefunden wird
+if (schalter && etwasGefunden){ // diese zeile sind im dem loop sodass die datum und  andere daten werden updated, aber sonstt drueckt jedes mahl und nicht nur wenn eon wert gefunden wird
 	if (antwort.equals("1")){
-//datenDrücken(datumHerausbekommt,"alle");
-		datenDrücken(datumHerausbekommt,"Datum");
-		datenDrücken(datumHerausbekommt, datenZuSuchen );
+//datenDruecken(datumHerausbekommt,"alle");
+		datenDruecken(datumHerausbekommt,"Datum");
+		datenDruecken(datumHerausbekommt, datenZuSuchen );
 	}else{
-		datenDrücken(datumHerausbekommt,"Datum");
-		datenDrücken(datumHerausbekommt, datenZuSuchen );
-		datenDrücken(datumHerausbekommt,datVereinigung(String.valueOf(antwort)));
+		datenDruecken(datumHerausbekommt,"Datum");
+		datenDruecken(datumHerausbekommt, datenZuSuchen );
+		datenDruecken(datumHerausbekommt,datVereinigung(String.valueOf(antwort)));
 	}
 	schalter = false;
 }
 //###########################
-/**/zähler++;			 //##		ACHTUNG SEHR WICHTIG
-/**/reierFindenZähler++; //##		DAS IST DER TRIEBRIEMER
+/**/zaehler++;			 //##		ACHTUNG SEHR WICHTIG
+/**/reierFindenZaehler++; //##		DAS IST DER TRIEBRIEMER
 //###########################
 }
 }
@@ -770,7 +775,7 @@ if (!etwasGefunden){
 	System.out.println("kein wert gefunden vergleichbar mit  -" + wasGenau+" -  ");
 }
 }else{
-	System.out.println("Das eingegebene zeitraum enthält keine daten");
+	System.out.println("Das eingegebene zeitraum enthaelt keine daten");
 }
 }
 }
@@ -796,7 +801,7 @@ public static float parsieren(String betreff){
 	}
 
 	String neue = new String(bt);
-//System.out.print("--->"+neue+"<---");
+
 	float endWert = Float.valueOf(neue);
 
 	return endWert;
@@ -810,17 +815,17 @@ public static float parsieren(String betreff){
 
 
 
-// suchen das Wort    önnte String mit datum als imput um das array zu machen.. datum ist das ID in diesem database von ganzerli massimo
+// suchen das Wort    oennte String mit datum als imput um das array zu machen.. datum ist das ID in diesem database von ganzerli massimo
 /*	public static void suchen(String wert, String nameVonFile){
 
 nameVonFile =(System.getProperty("user.dir")+"/2015/"+nameVonFile+".txt");
-int arrGrösse = reierFinden(wert,nameVonFile).length;
+int arrGroesse = reierFinden(wert,nameVonFile).length;
 
 
-if (arrGrösse > 0){// schaut ob es uberhaupt gibt es in dem file das wort in der richtigen position.
-System.out.println("wert : " + wasGenau +" von Sort :" +datenZuSuchen+"\ngefunden  "+arrGrösse+ "  mahl \n");
-if (arrGrösse > 1){
-System.out.println(" 1) nur die tagen die (als Datum) gehören zu "+datenZuSuchen+ "zeigen \n 2) Alle die andere Daten auch? \n");
+if (arrGroesse > 0){// schaut ob es uberhaupt gibt es in dem file das wort in der richtigen position.
+System.out.println("wert : " + wasGenau +" von Sort :" +datenZuSuchen+"\ngefunden  "+arrGroesse+ "  mahl \n");
+if (arrGroesse > 1){
+System.out.println(" 1) nur die tagen die (als Datum) gehoeren zu "+datenZuSuchen+ "zeigen \n 2) Alle die andere Daten auch? \n");
 scan = new Scanner(System.in);
 String antwort = scan.nextLine();
 if (antwort.equals("1")){// unten antwort wird ein neuen wer bekommen
@@ -833,40 +838,40 @@ System.out.println("\nWerden gezeigt die tagen wann als "+datenZuSuchen+": " +wa
 
 antwort2 = scan.nextLine();
 
-for (byte i = 2; i <= nummerGegenstände; i++){ // kontrollieren das die antwort zwischen 2 und 6 ist und isr nicht was scon gefragt hat "datenZuSuchen"
+for (byte i = 2; i <= nummerGegenstaende; i++){ // kontrollieren das die antwort zwischen 2 und 6 ist und isr nicht was scon gefragt hat "datenZuSuchen"
 if (antwort2.equals(String.valueOf(i)) && i != woMussSein(datenZuSuchen)+1 ){
 knt = true;
 }
 }
 
 if (antwort2.equals("1")){// hier antwort hat ein neuen wert
-for (int i = 0 ; i <arrGrösse;i++){
+for (int i = 0 ; i <arrGroesse;i++){
 	reier = Byte.valueOf(String.valueOf(reierFinden(wert,nameVonFile)[i])); // nimmt wo ist in dem file die reier 
 	datumHerausbekommt  = datumVonReier(reier,nameVonFile); // kriegt die datum raus von der reier
 	System.out.print(datenZuSuchen+": "+wasGenau+"  ");
-	datenDrücken(datumHerausbekommt,"Datum"); // drückt
+	datenDruecken(datumHerausbekommt,"Datum"); // drueckt
 	knt = true;
 }
 }else if (knt){
-for (int i = 0 ; i <arrGrösse;i++){
+for (int i = 0 ; i <arrGroesse;i++){
 	reier = Byte.valueOf(String.valueOf(reierFinden(wert,nameVonFile)[i])); // nimmt wo ist in dem file die reier 
 	datumHerausbekommt  = datumVonReier(reier,nameVonFile); // kriegt die datum raus von der reier
 	System.out.print(datenZuSuchen+": "+wasGenau+"  ");
-	datenDrücken(datumHerausbekommt,"Datum");
-	datenDrücken(datumHerausbekommt,datVereinigung(String.valueOf(antwort2)));
+	datenDruecken(datumHerausbekommt,"Datum");
+	datenDruecken(datumHerausbekommt,datVereinigung(String.valueOf(antwort2)));
 }
 }else{
-System.out.println("\n:::::-----  Antwort nicht gültig, bitte wieder wählen  ----:::::\n");
+System.out.println("\n:::::-----  Antwort nicht gueltig, bitte wieder waehlen  ----:::::\n");
 }
 }while(!knt);
 
 }else{ 
 byte reier;
 /*2)*//*			String datumHerausbekommt;
-for (int i = 0 ; i <arrGrösse;i++){
+for (int i = 0 ; i <arrGroesse;i++){
 reier = Byte.valueOf(String.valueOf(reierFinden(wert,nameVonFile)[i]));
 datumHerausbekommt  = datumVonReier(reier,nameVonFile);
-datenDrücken(datumHerausbekommt,"alle");
+datenDruecken(datumHerausbekommt,"alle");
 }
 }
 }
@@ -878,11 +883,11 @@ public static String[] datGesuchtHerausBekommen(String nameFile){
 	String tempVar;
 	int reierCounter=1;
 	byte columncounter=0;
-String monatArr[] = new String[31]; // nur maximale mänge
-byte index=0;
-String arrayFutter="";
+	String monatArr[] = new String[31]; // nur maximale maenge
+	byte index=0;
+	String arrayFutter="";
 
-fileÖffnen(System.getProperty("user.dir")+"/2015/"+nameFile+".txt");// macht schon den scann.
+fileOeffnen(System.getProperty("user.dir")+"/2015/"+nameFile+".txt");// macht schon den scann.
 //System.out.println(nameFile);
 
 if (scan.hasNext()){
@@ -891,32 +896,33 @@ if (scan.hasNext()){
 
 		if (tempVar.equals("<->")){
 			columncounter++;
-			if (columncounter==nummerGegenstände){
+			if (columncounter==nummerGegenstaende){
 				columncounter = 0;
 				reierCounter++;
-
+				
 				monatArr[index]=arrayFutter;
 				index++;
 				arrayFutter="";
-
 			}
+			// finding the column of the record
 		}else if (columncounter == woMussSein(datenZuSuchen)){
 
 			arrayFutter = arrayFutter +" "+tempVar;
 
 //monatArr[index]=tempVar;
-//index++;// hier index wird ein mahl mehr zu viehl, die konrolle while wird danach und das loop geht raus das array wird gefullt aber index wird win mahl mehr hinzugefügt
+//index++;// hier index wird ein mahl mehr zu viehl, die konrolle while wird danach und das loop geht raus das array wird gefullt aber index wird win mahl mehr hinzugefuegt
 
 //System.out.println(monatArr[index] +"  "+ index);
 		}
 	}
 }
-String zuRückZugeben[] = new String[index]; //hier wird ein passende genau index array zurückgegeben, sodass das arraymethod die richtige mass hat;
+
+String zuRueckZugeben[] = new String[index]; //hier wird ein passende genau index array zurueckgegeben, sodass das arraymethod die richtige mass hat;
 for (byte i = 0; i <index ; i++){ /// index ist schon ein mahl oben zu viel, dann brauch man ken [index +1] und ; i <= index
-	zuRückZugeben[i] = monatArr[i];
+	zuRueckZugeben[i] = monatArr[i];
 }
 scan.close();
-return zuRückZugeben;
+return zuRueckZugeben;
 }
 
 public static String[] reierFinden(String wert,String nameVonFile){
@@ -929,7 +935,7 @@ public static String[] reierFinden(String wert,String nameVonFile){
 
 	if (arrMass > 0 ){
 
-		fileÖffnen(nameVonFile);
+		fileOeffnen(nameVonFile);
 		int arrIndex = 0;
 
 		if (scan.hasNext()){
@@ -938,7 +944,7 @@ tempVar = scan.next(); // nur hier tempVar bekommt ein Wert
 
 if (tempVar.equals("<->")){
 	columncounter++;
-	if (columncounter==nummerGegenstände){
+	if (columncounter==nummerGegenstaende){
 		columncounter = 0;
 		reierCounter++;
 	}
@@ -948,12 +954,12 @@ if (tempVar.equals(wert) && columncounter == woMussSein(datenZuSuchen)){
 
 //System.out.println(arr[arrIndex]);
 	arrIndex++;  
-	
+
 	if (arrIndex >= arrMass ){
 		arrIndex = arrIndex;
 	}
-}
-}
+	}
+	}
 }
 }else{
 //System.out.println("wert -- "+ wasGenau +" -- nicht gefunden");
@@ -969,13 +975,13 @@ public static int arrMass(String wert, String nameVonFile){
 	byte reierCounter=0;
 	String tempVar="";
 
-	fileÖffnen(nameVonFile);
+	fileOeffnen(nameVonFile);
 	if (scan.hasNext()){
 		while(scan.hasNext()){
 			tempVar= scan.next();
 			if (tempVar.equals("<->")){
 				columncounter++;
-				if (columncounter==nummerGegenstände){
+				if (columncounter==nummerGegenstaende){
 					columncounter = 0;
 					reierCounter++;
 				}
@@ -996,7 +1002,7 @@ public static String datumVonReier(byte reierNummer,String nameVonFile){
 	String tempVar="";
 	String dat="";
 
-	fileÖffnen(nameVonFile);
+	fileOeffnen(nameVonFile);
 
 	if (scan.hasNext()){
 		while(scan.hasNext()){
@@ -1009,7 +1015,7 @@ if (reierNummer == reierCounter){
 
 if (tempVar.equals("<->")){
 	columncounter++;
-	if (columncounter==nummerGegenstände){
+	if (columncounter==nummerGegenstaende){
 		columncounter = 0;
 		reierCounter++;
 	}
@@ -1033,28 +1039,28 @@ public static byte woMussSein (String datenZuSuchen){
 	}
 	return zuDagegenGeben;
 }	
-// eine string zurückgeben die nur die andere nicht der ausgewählt in den möglichkeiten zeigt
+// eine string zurueckgeben die nur die andere nicht der ausgewaehlt in den moeglichkeiten zeigt
 public static String ausgeschlossenZeigen(String ausgeschlossen, String wasAnders, boolean mitNeueReie, boolean auchNummerZeigen){
 
 	String neueReier="";
-	String möglichkeitZeigen="";
+	String moeglichkeitZeigen="";
 
 	if (mitNeueReie){
 		neueReier = "\n";
 	}
 	if (!wasAnders.equals("nein")){
-		möglichkeitZeigen =  wasAnders +" "+neueReier;
+		moeglichkeitZeigen =  wasAnders +" "+neueReier;
 	}
-	for (byte i = 2; i<= nummerGegenstände; i++){
+	for (byte i = 2; i<= nummerGegenstaende; i++){
 		if (ausgeschlossen == datVereinigung(String.valueOf(i))){
 // nix wird es trotzdem nicht gezeigt;
 		}else if (auchNummerZeigen){
-			möglichkeitZeigen = möglichkeitZeigen + String.valueOf(i)+") "+datVereinigung(String.valueOf(i))+ neueReier;
+			moeglichkeitZeigen = moeglichkeitZeigen + String.valueOf(i)+") "+datVereinigung(String.valueOf(i))+ neueReier;
 		}else{
-			möglichkeitZeigen = möglichkeitZeigen + datVereinigung(String.valueOf(i))+" "+neueReier;
+			moeglichkeitZeigen = moeglichkeitZeigen + datVereinigung(String.valueOf(i))+" "+neueReier;
 		}
 	}
-	return möglichkeitZeigen;
+	return moeglichkeitZeigen;
 }
 /*############################################################################################################################################################################
 ##############################################    MAN KANN LESEN DATUM UND ALLES ANDERE SORTE ZEIGEN #########################################################################
@@ -1136,13 +1142,13 @@ public static String[] wieVieleFile(boolean seitImmer,String erstesFile,String g
 			i=1;
 			jahr ++;
 			if (seitImmer){
-counter ++;			//  ###########################################################################################################################
-if (counter > 10){  //  ## diese nummer stellt fest wie viele jahre die programme kann unbenutzt bleiben und noch die function Datensuchen haben ##
-stop = true;	//  ###########################################################################################################################
-}
-}
-}
-} // stop!!
+				counter ++;			//  ###########################################################################################################################
+				if (counter > 10){  //  ## diese nummer stellt fest wie viele jahre die programme kann unbenutzt bleiben und noch die function Datensuchen haben ##
+					stop = true;	//  ###########################################################################################################################
+				}
+			}
+		}
+	} // stop!!
 
 
 if(sammlungString.length() > 7){

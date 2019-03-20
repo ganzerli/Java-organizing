@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.util.Scanner;
 import java.io.IOException;
@@ -21,7 +20,7 @@ private boolean sperre = true;
 		File benutzer = new File("benutzer.txt");
 	}
 	
-	public void fileöffnen() {
+	public void fileOeffnen() {
 
 		try{
 			x = new Scanner(new File("benutzer.txt"));
@@ -49,7 +48,7 @@ private boolean sperre = true;
 
 	public void filereiercounter(){	
 		counter = 0;
-		fileöffnen(); //        <<<<--------------
+		fileOeffnen(); //        <<<<--------------
 		while (x.hasNextLine()) {  
 			String a = x.nextLine(); /// WICHTIG!! wenn das wert nicht gegeben wird das while ist endlos!!!
 			counter++;
@@ -82,7 +81,7 @@ private boolean sperre = true;
 				String t = vornameneubenutzer + " " +nachnamebenutzer;
 				String arr[] = new String[counter +1];
 
-				fileöffnen();  //// <<<<<<--------
+				fileOeffnen();  //// <<<<<<--------
 
 				counter = 0;
 				while (x.hasNextLine()) {
@@ -94,7 +93,7 @@ private boolean sperre = true;
 				// hier couter ist schon 6!! array fängt an von 0 dann die reier unten passen schon
 				arr[counter] = t;
 				fileschliessen(); ////    <<<<<-------------
-				// wielleicht noch file öffnen
+				// wielleicht noch file Oeffnen
 				try{
         			PrintWriter output = new PrintWriter ("benutzer.txt");
 
@@ -175,6 +174,7 @@ private boolean sperre = true;
 		String j = "j";
 		String nein = "nein";
 		String n = "n";
+		String namefile = "benutzer.txt";
 
 		if (antwort.equals(ja) || antwort.equals(nein) || antwort.equals(j) || antwort.equals(n) ) {
 			if (antwort.equals(ja)){
@@ -187,8 +187,7 @@ private boolean sperre = true;
 				String nachnamebenutzer = x.nextLine();
 
 				String text = vornameneubenutzer + " " +nachnamebenutzer;
-				String namefile = "benutzer.txt";
-
+				
 				fileschreiben namehinzufugen = new fileschreiben(namefile,text);
 				namehinzufugen.einschreiben();
 			}else{

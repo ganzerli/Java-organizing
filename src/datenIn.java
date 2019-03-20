@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.util.Scanner;
 import java.io.IOException;
@@ -5,12 +6,12 @@ import java.io.PrintWriter;
 
 class datenIn{
 
-private String datum,trinkgeld,besonderheit,noten,ausgegeben,wofür;
+private String datum,trinkgeld,besonderheit,noten,ausgegeben,wofuer;
 private String datArr[] = new String[6];
 
 private String nameFile;
 private Scanner scan;
-private byte zähler = 0;
+private byte zaehler = 0;
 
 private String datumZuNameFile = ""; //wenn man die String auf ainander Addirt muss man das default wert geben.
 
@@ -26,7 +27,7 @@ public void datenRein(){
 		this.datum = scan.nextLine();
 		System.out.println();
 		datArr[0] = datum;
-	// wäre besser ein datum kontrolle..
+	// waere besser ein datum kontrolle..
 	System.out.print("$ eingenommen :    ");
 		this.trinkgeld = scan.nextLine();
 		System.out.println();
@@ -47,10 +48,10 @@ public void datenRein(){
 		System.out.println();
 		datArr[4] = ausgegeben;
 
-	System.out.print("wofür(sache-preiz/) ");
-		this.wofür =scan.nextLine();
+	System.out.print("wofuer(sache-preiz/) ");
+		this.wofuer =scan.nextLine();
 		System.out.println();
-		datArr[5] = wofür;
+		datArr[5] = wofuer;
 } 
 
 //     /     //     /      //      /     //       /      // getter und setter
@@ -65,13 +66,13 @@ public String getBesonderheit(){
 	return besonderheit;					
 }													
 public String getNoten(){
-	return noten;									// Am besen wäre es zu schreiben: RETURN THIS.VARIABLE;
+	return noten;									// Am besen waere es zu schreiben: RETURN THIS.VARIABLE;
 }
 public String getAusgenommen(){						// 	nur nun hab keine lust..
 	return ausgegeben;
 }
-public String getWofür(){
-	return wofür;
+public String getWofuer(){
+	return wofuer;
 }
 public String getNameFile(){
 	return nameFile;
@@ -150,7 +151,7 @@ public void datenInFIleSchreiben(String woHin){
     }
 }
 
-public void reierZählen(String welcheFile){
+public void reierZaehlen(String welcheFile){
 		try{
 		scan = new Scanner(new File(welcheFile));
 	}catch(Exception e){
@@ -160,7 +161,7 @@ public void reierZählen(String welcheFile){
 	if (scan.hasNextLine()){
 		while(scan.hasNextLine()){
 			wert = scan.nextLine();
-			zähler += 1;
+			zaehler += 1;
 		}
 	}
 	fileSchliessen();
@@ -168,14 +169,14 @@ public void reierZählen(String welcheFile){
 
 public void zusammenFassenAdd (String welcheFile){   	// wenn es gibt!!
 
-	reierZählen(nameFile);
-	String zusArr[] = new String[zähler+1];
-	fileÖffnen(welcheFile);// !!! in reierZahlen() wurde das file geschlossen, dann muss ietzt wieder geöffnet werden..
+	reierZaehlen(nameFile);
+	String zusArr[] = new String[zaehler+1];
+	fileOffnen(welcheFile);// !!! in reierZahlen() wurde das file geschlossen, dann muss ietzt wieder geöffnet werden..
 
 	if (scan.hasNextLine()){
 		int i = 0;
 		String wert;
-		/* wenn man hier das wert von :  scan.hasNextLine()   gibt, wenn sie die ERSTE reie ist,bleibt kein "next" mehr speter.. und das loop fängt bloss nicht an...*/
+		/* wenn man hier das wert von :  scan.hasNextLine()   gibt, wenn sie die ERSTE reie ist,bleibt kein "next" mehr speter.. und das loop faengt bloss nicht an...*/
 		while(scan.hasNextLine()){
 			// erstmal das wert hier geben, sodass auch mit einer reie geht in loop
 			wert = scan.nextLine();
@@ -186,8 +187,8 @@ public void zusammenFassenAdd (String welcheFile){   	// wenn es gibt!!
 
 	fileSchliessen();// vielleicht besser uber else ??
 
-	String hinzufügen = datum + "  <->  "+ trinkgeld + "  <->  "+ besonderheit + "  <->  " +noten +"  <->  "+ ausgegeben + "  <->  "+ wofür + "  <->  ";
-	zusArr[zähler]=hinzufügen;
+	String hinzufuegen = datum + "  <->  "+ trinkgeld + "  <->  "+ besonderheit + "  <->  " +noten +"  <->  "+ ausgegeben + "  <->  "+ wofuer + "  <->  ";
+	zusArr[zaehler]=hinzufuegen;
 
 	try{
         PrintWriter output = new PrintWriter(nameFile);
@@ -202,8 +203,8 @@ public void zusammenFassenAdd (String welcheFile){   	// wenn es gibt!!
     }
 }
 
-//   /   //     /     //        //    /    //    /    //    /     //    /     // file schliessen und öffnen
-public void fileÖffnen(String welches) {
+//   /   //     /     //        //    /    //    /    //    /     //    /     // file schliessen und Offnen
+public void fileOffnen(String welches) {
 	try{scan = new Scanner(new File(welches));}
 	catch(Exception e){System.out.println("Kein file gefunden");}
 }
