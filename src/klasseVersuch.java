@@ -61,8 +61,5 @@ public static void main(String[] args) {
 
  }   //// MAIN !!! MAIN   MAIN    MAIN    MAIN     MAIN   M A I N      <------
 
-public static void pierdole (){
-	System.out.println("pierdole");
-}
 
 }// end class
