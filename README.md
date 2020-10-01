@@ -1,2 +1,2 @@
 # Java-organizing
-Java program to run in command line, takes name and info from every day, and then the info can be searched and filtered to get the preferred ones.
+Program to run in command line, write info from the day, then you can search the kind of data from numbers or words to get the preferred ones.
